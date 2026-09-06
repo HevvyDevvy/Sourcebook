@@ -118,6 +118,95 @@
   #search::placeholder { color: var(--text-faint); }
   #search:focus { outline: none; border-color: var(--accent-dim); }
 
+  /* ---------- hero ---------- */
+  section.hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-text { flex: 1; min-width: 0; }
+  .hero-text h2 {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    line-height: 1.25;
+  }
+  .hero-text p {
+    color: var(--text-dim);
+    font-size: 15px;
+    max-width: 480px;
+    margin: 0 0 24px;
+  }
+  .hero-stats { display: flex; gap: 32px; }
+  .hero-stats div { display: flex; flex-direction: column; }
+  .hero-stats strong { font-family: var(--serif); font-size: 26px; color: var(--accent); }
+  .hero-stats span { font-family: var(--mono); font-size: 11.5px; color: var(--text-faint); }
+  .hero-video {
+    flex-shrink: 0;
+    width: 220px;
+    aspect-ratio: 9 / 16;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+  }
+  .hero-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+  /* ---------- showcase ---------- */
+  section.showcase {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .showcase-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+  .showcase-note { color: var(--text-faint); font-size: 13px; margin: 0 0 20px; }
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+  }
+  .show-card { display: flex; flex-direction: column; }
+  .show-video {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    margin-bottom: 8px;
+  }
+  .show-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .show-tag {
+    align-self: flex-start;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--accent);
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-dim);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+  }
+  .show-caption { font-size: 12.5px; color: var(--text-dim); margin: 0; line-height: 1.5; }
+  .domain-videos { margin: 14px 0 20px; }
+  .domain-videos .show-video { max-width: 200px; }
+
+  @media (max-width: 700px) {
+    section.hero { flex-direction: column; align-items: flex-start; }
+    .hero-video { width: 200px; }
+  }
+
   /* ---------- layout ---------- */
   .layout {
     max-width: 1180px;
@@ -245,7 +334,7 @@
   </p>
 
   <div class="proof-box">
-    Everything below was free to complete. <a href="https://github.com/DeadmanXXXII/Curriculum-Vitae" target="_blank" rel="noopener">See where it can lead →</a> — a working CV built entirely from resources like these.
+    Everything below was free to complete. Scroll down to watch it turn into real certifications, labs, and working code.
   </div>
 
   <div class="search-wrap">
@@ -253,9 +342,25 @@
   </div>
 </header>
 
+<section class="hero">
+  <div class="hero-text">
+    <h2>Free to learn. Free to prove it.</h2>
+    <p>Every certificate, lab, and line of code on this page came from a free resource below. No paywalled proof — just footage.</p>
+    <div class="hero-stats">
+      <div><strong>£0</strong><span>spent</span></div>
+      <div><strong>6</strong><span>domains</span></div>
+      <div><strong>60+</strong><span>resources</span></div>
+    </div>
+  </div>
+  <div class="hero-video">
+    <iframe src="https://www.youtube.com/embed/S8IfVqmKPSY" title="Certifications earned from free resources" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
 <div class="layout">
   <nav class="toc" id="toc">
     <a href="#cybersecurity">Cybersecurity</a>
+    <a href="#cyber-defence">Cyber defence</a>
     <a href="#home-labs">Home labs</a>
     <a href="#cloud-devops">Cloud & DevOps</a>
     <a href="#networking">Networking</a>
@@ -270,6 +375,20 @@
     <section class="domain" id="cybersecurity">
       <h2>Cybersecurity</h2>
       <p class="domain-note">Hosted ranges, ethical hacking paths, and course platforms — check that the specific path or tier you want is actually the free one.</p>
+      <div class="showcase-grid domain-videos">
+        <div class="show-card">
+          <div class="show-video"><iframe src="https://www.youtube.com/embed/YjA6iVkF69E" title="Running shell-audit" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <p class="show-caption">Running shell-audit, built by Red Team Education.</p>
+        </div>
+        <div class="show-card">
+          <div class="show-video"><iframe src="https://www.youtube.com/embed/VTxzzzN3O5c" title="Hack The Box lab via NetHunter" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <p class="show-caption">Completing a Hack The Box lab an alternate way, using NetHunter.</p>
+        </div>
+        <div class="show-card">
+          <div class="show-video"><iframe src="https://www.youtube.com/embed/x5Rln2lg8fU" title="Smart contract gas fee DoS" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <p class="show-caption">Triggering a denial of service through gas fees while adding users to an array, on Cyfrin's smart contract security auditor course.</p>
+        </div>
+      </div>
       <ul class="res-list">
         <li class="res"><div class="res-main"><a class="res-name" href="https://hackthebox.com" target="_blank" rel="noopener">Hack The Box</a><span class="res-note">Starting Point and CREST CRT paths</span></div><span class="res-tag">lab</span></li>
         <li class="res"><div class="res-main"><a class="res-name" href="https://tryhackme.com" target="_blank" rel="noopener">TryHackMe</a><span class="res-note">SOC Analyst path</span></div><span class="res-tag">lab</span></li>
@@ -300,6 +419,21 @@
       </ul>
     </section>
 
+    <section class="domain" id="cyber-defence">
+      <h2>Cyber defence</h2>
+      <p class="domain-note">Blue-team leaning practice — monitoring, detection and staying ahead of what's circulating.</p>
+      <div class="showcase-grid domain-videos">
+        <div class="show-card">
+          <div class="show-video"><iframe src="https://www.youtube.com/embed/8FGMpeoXl3U" title="Self-coded port scanner" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <p class="show-caption">Checking remote connections with a port scanner coded from scratch.</p>
+        </div>
+        <div class="show-card">
+          <div class="show-video"><iframe src="https://www.youtube.com/embed/Vw_ugiCtppE" title="Using Tor to track new hacks" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <p class="show-caption">Using Tor to read banned stories and track new hacks as they surface.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="domain" id="home-labs">
       <h2>Home labs</h2>
       <p class="domain-note">Self-hosted and downloadable environments to practise against locally.</p>
@@ -325,6 +459,12 @@
     <section class="domain" id="networking">
       <h2>Networking</h2>
       <p class="domain-note">CCNA-aligned training, most of it Cisco-run or Cisco-adjacent.</p>
+      <div class="showcase-grid domain-videos">
+        <div class="show-card">
+          <div class="show-video"><iframe src="https://www.youtube.com/embed/6Sbk7bawLbQ" title="Piggybacking WiFi with equipment" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <p class="show-caption">Using kit to piggyback a WiFi signal.</p>
+        </div>
+      </div>
       <ul class="res-list">
         <li class="res"><div class="res-main"><a class="res-name" href="https://www.netacad.com" target="_blank" rel="noopener">Cisco Networking Academy</a><span class="res-note">CCNA and ethical hacking courses</span></div><span class="res-tag">course</span></li>
         <li class="res"><div class="res-main"><a class="res-name" href="https://skillsforall.com" target="_blank" rel="noopener">Skills For All</a><span class="res-note">CCNA 7</span></div><span class="res-tag">course</span></li>
@@ -337,6 +477,12 @@
     <section class="domain" id="programming">
       <h2>Programming & computer science</h2>
       <p class="domain-note">General CS fundamentals and coding practice, largely certificate-free but strong on substance.</p>
+      <div class="showcase-grid domain-videos">
+        <div class="show-card">
+          <div class="show-video"><iframe src="https://www.youtube.com/embed/fdftKRHas6U" title="Labyrinth working for the first time" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <p class="show-caption">The first time Labyrinth worked, mid-development.</p>
+        </div>
+      </div>
       <ul class="res-list">
         <li class="res"><div class="res-main"><a class="res-name" href="https://cs50.harvard.edu" target="_blank" rel="noopener">Harvard CS50</a><span class="res-note">No certificate on the free track, course is excellent</span></div><span class="res-tag">course</span></li>
         <li class="res"><div class="res-main"><a class="res-name" href="https://ocw.mit.edu" target="_blank" rel="noopener">MIT OpenCourseWare</a><span class="res-note">Computer science fundamentals, no certificate</span></div><span class="res-tag">course</span></li>
